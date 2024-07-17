@@ -9,6 +9,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { ModalProvider } from "@/providers/modal-provider";
+import { ToastProvider } from "@/providers/toast-providers";
 
 export const metadata: Metadata = {
   title: "KevTech Store",
@@ -25,13 +26,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="p-4">
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
+        <body>
           <SignedIn>
-            <UserButton />
           </SignedIn>
+          <ToastProvider />
           <ModalProvider />
           {children}
         </body>
