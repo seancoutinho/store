@@ -8,7 +8,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
-import { ModalProvider } from "@/providers/modal-provider";
+import ModalProvider from "@/providers/modal-provider";
 import { ToastProvider } from "@/providers/toast-providers";
 
 export const metadata: Metadata = {
