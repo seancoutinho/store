@@ -12,8 +12,8 @@ import ModalProvider from "@/providers/modal-provider";
 import { ToastProvider } from "@/providers/toast-providers";
 
 export const metadata: Metadata = {
-  title: "KevTech Store",
-  description: "Buy the latest tech gadgets at KevTech Store",
+  title: "ByteStream Store",
+  description: "Buy the latest tech gadgets at ByteStream Store",
 };
 
 export default function RootLayout({
@@ -21,14 +21,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
   return (
     <ClerkProvider>
       <html lang="en">
         <body>
-          <SignedIn>
-          </SignedIn>
+          <SignedIn></SignedIn>
           <ToastProvider />
           <ModalProvider />
           {children}
