@@ -56,7 +56,7 @@ export async function DELETE(
   try {
     const { userId } = auth();
     if (!userId) {
-      return new NextResponse("Unauthorized", {
+      return new NextResponse("Unauthenticated", {
         status: 401,
       });
     }
@@ -76,7 +76,7 @@ export async function DELETE(
 
     return NextResponse.json(store);
   } catch (error) {
-    console.log("STORE_PATCH", error);
+    console.log("STORE_DELETE", error);
     return new NextResponse("Internal Error", {
       status: 500,
     });

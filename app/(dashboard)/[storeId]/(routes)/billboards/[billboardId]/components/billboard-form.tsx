@@ -71,6 +71,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
         await axios.post(`/api/${params.storeId}/billboards`, data);
       }
       router.refresh();
+      router.push(`/${params.storeId}/billboards`);
       toast.success(toastMessage);
     } catch (error) {
       toast.error("Something went wrong");
@@ -161,12 +162,6 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
             {action}
           </Button>
         </form>
-        <Separator />
-        <ApiAlert
-          title="NEXT_PUBLIC_API_URL"
-          description={`${origin}/api/${params.storeId}`}
-          variant="public"
-        />
       </Form>
     </>
   );
