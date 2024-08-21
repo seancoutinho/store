@@ -21,7 +21,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { useParams, useRouter } from "next/navigation";
-import { ApiAlert } from "@/components/ui/api-alert";
 import { useOrigin } from "@/hooks/use-origin";
 import { Input } from "@/components/ui/input";
 import ImageUpload from "@/components/ui/image-upload";
@@ -42,7 +41,6 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
 }) => {
   const params = useParams();
   const router = useRouter();
-  const origin = useOrigin();
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -85,7 +83,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
       setLoading(true);
       await axios.delete(`/api/${params.storeId}/billboards/${params.billboardId}`);
       router.refresh();
-      router.push("/");
+      router.push(`/${params.storeId}/billboards`);
       toast.success('Billboard deleted successfully.');
     } catch (error) {
       toast.error("Make sure to delete all categories using this billboard first");
